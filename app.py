@@ -468,7 +468,7 @@ class ARLDM(pl.LightningModule):
 #         sample(args)
 
 
-class ParamsAsArgs(namedTuple):
+class ParamsAsArgs(NamedTuple):
     # device
     mode: str = 'train'
     gpu_ids: dict = 1 #[ 0, 1, 2, 3 ]
