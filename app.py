@@ -524,7 +524,9 @@ def predict(args: DictConfig) -> None:
 @app.route('/predict', methods=['GET'])
 def start():
     params = ParamsAsArgs()
-    params.dataset = request.args.get('dataset') if request.args.get('dataset') else 'pororo'
+    dataset = request.args.get('dataset') if request.args.get('dataset') else None
+    if dataset is not None:
+        params = params._replace(dataset=dataset)
     pl.seed_everything(params.seed)
     predict(params)
 
