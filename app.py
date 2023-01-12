@@ -521,7 +521,7 @@ def predict(args: DictConfig) -> None:
         print('FID: {}'.format(fid))
 
 
-@app.route('/predict', method=['GET'])
+@app.route('/predict', methods=['GET'])
 def start():
     params = ParamsAsArgs()
     params.dataset = request.args.get('dataset') if request.args.get('dataset') else 'pororo'
@@ -530,4 +530,4 @@ def start():
 
 
 if __name__ == '__main__':
-    app.run(host=0.0.0.0, port='8080', threaded=False)
+    app.run(host='0.0.0.0', port=8080, threaded=False)
